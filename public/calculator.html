@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="calculator.css">
+        <script src="calculator.js"></script>
+    </head>
+    <body>
+        <div class="header"></div>
+        <div class="content">
+            <h1>Grade Calculator</h1>
+            <section class="calculator">
+                <h3>Activities</h3>
+                <h4>Give grades to the numeric activities:</h4>
+                <table id="gradeTable">
+                    <tr class="firstRow">
+                        <td id="name">Name</td>
+                        <td id="shortName">Short Name</td> 
+                        <td id="weight">Weight</td>
+                        <td id="grade">Grade</td>
+                        <td id="percent">Percent</td>
+                    </tr>
+                    <tr>
+                        <td>Activity 1</td>
+                        <td>A1</td>
+                        <td><input id="weightValue"></td>
+                        <td><input id="gradeNumerator"><span>/</span><input type="text" id="gradeDenominator"></td>
+                        <td><p id="percentValue"></p></td>
+                    </tr>
+                    <tr>
+                        <td>Activity 2</td>
+                        <td>A2</td>
+                        <td><input id="weightValue"></td>
+                        <td><input id="gradeNumerator"><span>/</span><input type="text" id="gradeDenominator"></td>
+                        <td><p id="percentValue"></p></td>
+                    </tr>
+                    <tr>
+                        <td>Activity 3</td>
+                        <td>A3</td>
+                        <td><input id="weightValue"></td>
+                        <td><input id="gradeNumerator"><span>/</span><input type="text" id="gradeDenominator"></td>
+                        <td><p id="percentValue"></p></td>
+                    </tr>
+                    <tr>
+                        <td>Activity 4</td>
+                        <td>A4</td>
+                        <td><input id="weightValue"></td>
+                        <td><input id="gradeNumerator"><span>/</span><input type="text" id="gradeDenominator"></td>
+                        <td><p id="percentValue"></p></td>
+                    </tr>
+                </table>
+                <button type="button" id="addActivity">ADD ACTIVITY</button>
+                <p id="result">Result</p>
+                <p id="outputDisplay"></p>
+                <button type="button" id="weighted">WEIGHTED</button>
+                <button type="button" id="mean">MEAN</button>
+            </section>
+        </div>
+        <footer></footer>
+    </body>
+    <!-- <div class="wrapper">
+        <header>Header</header>
+        <aside>Sidebar</aside>
+        <article>Main content</article>
+        <footer>Footer</footer>
+    </div> -->
+    
+</html>
