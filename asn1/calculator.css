@@ -1,3 +1,6 @@
+
+/* typical browser window size: 1366 x 768 */
+
 body {
     background-color: rgb(168, 2, 2);
 }
@@ -18,12 +21,16 @@ h3 {
     top: 25px;
 }
 
-h5 {
+h4 {
     color: rgb(54, 52, 52);
     position: relative;
     left: -15px;
     margin-top: 10px; 
     padding: 30px;
+}
+
+textarea {
+    display:none;
 }
 
 .content {
@@ -85,25 +92,17 @@ td {
     border-color: rgb(184, 181, 181);
 }
 
-.first-row {
+.firstRow {
     background-color: rgb(212, 211, 211);
     font-size: 12pt;
     font-weight: bold;
 }
 
-.name {
+#name, #shortName, #weight, #grade, #percent {
     width: 20%;
 }
 
-.short-name {
-    width: 20%;
-}
-
-.weight {
-    width: 20%;
-}
-
-.weight-value, .grade-numerator, .grade-denominator {
+#weightValue, #gradeNumerator, #gradeDenominator {
     height: 33px;
     width: 50px;
 }
@@ -115,14 +114,6 @@ span {
     bottom: -5px;
 }
 
-.grade {
-    width: 20%;
-}
-
-.percent {
-    width: 20%;
-}
-
 button {
     background-color: rgb(190, 4, 4);
     color: white;
@@ -132,19 +123,19 @@ button {
     cursor:pointer;
 }
 
-.add-activity {
+#addActivity {
     position: relative;
     bottom: 10px;
     left: 10px;
 }
 
-.weighted, .mean {
+#weighted, #mean {
     position: relative;
     bottom: 20px;
     left: 600px;
 }
 
-p {
+#result {
     color: rgb(204, 4, 4);
     font-weight: bold;
     position: relative;

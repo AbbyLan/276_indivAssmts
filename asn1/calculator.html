@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="calculator.css">
+        <script src="calculator.js"></script>
     </head>
     <body>
         <div class="header"></div>
@@ -9,48 +10,48 @@
             <h1>Grade Calculator</h1>
             <section class="calculator">
                 <h3>Activities</h3>
-                <h5>Give grades to the numeric activities:</h5>
+                <h4>Give grades to the numeric activities:</h4>
                 <table>
-                    <tr class="first-row">
-                        <td class="name">Name</td>
-                        <td class="short-name">Short Name</td> 
-                        <td class="weight">Weight</td>
-                        <td class="grade">Grade</td>
-                        <td class="percent">Percent</td>
+                    <tr class="firstRow">
+                        <td id="name">Name</td>
+                        <td id="shortName">Short Name</td> 
+                        <td id="weight">Weight</td>
+                        <td id="grade">Grade</td>
+                        <td id="percent">Percent</td>
                     </tr>
                     <tr>
                         <td>Activity 1</td>
                         <td>A1</td>
-                        <td><input class="weight-value"></td>
-                        <td><input class="grade-numerator"><span>/</span><input class="grade-denominator"></td>
-                        <td></td>
+                        <td><input id="weightValue"></td>
+                        <td><input id="gradeNumerator"><span>/</span><input type="text" id="gradeDenominator"></td>
+                        <td><p id="percentValue"></p></td>
                     </tr>
                     <tr>
                         <td>Activity 2</td>
                         <td>A2</td>
-                        <td><input class="weight-value"></td>
-                        <td><input class="grade-numerator"><span>/</span><input class="grade-denominator"></td>
-                        <td></td>
+                        <td><input id="weightValue"></td>
+                        <td><input id="gradeNumerator"><span>/</span><input type="text" id="gradeDenominator"></td>
+                        <td><p id="percentValue"></p></td>
                     </tr>
                     <tr>
                         <td>Activity 3</td>
                         <td>A3</td>
-                        <td><input class="weight-value"></td>
-                        <td><input class="grade-numerator"><span>/</span><input class="grade-denominator"></td>
-                        <td></td>
+                        <td><input id="weightValue"></td>
+                        <td><input id="gradeNumerator"><span>/</span><input type="text" id="gradeDenominator"></td>
+                        <td><p id="percentValue"></p></td>
                     </tr>
                     <tr>
                         <td>Activity 4</td>
                         <td>A4</td>
-                        <td><input class="weight-value"></td>
-                        <td><input class="grade-numerator"><span>/</span><input class="grade-denominator"></td>
-                        <td></td>
+                        <td><input id="weightValue"></td>
+                        <td><input id="gradeNumerator"><span>/</span><input type="text" id="gradeDenominator"></td>
+                        <td><p id="percentValue"></p></td>
                     </tr>
                 </table>
-                <button type="button" class="add-activity"">ADD ACTIVITY</button>
-                <p>Result</p>
-                <button type="button" class="weighted">WEIGHTED</button>
-                <button type="button" class="mean">MEAN</button>
+                <button type="button" id="addActivity" onclick="addActivity();">ADD ACTIVITY</button>
+                <p id="result">Result</p>
+                <button type="button" id="weighted" onclick="weightedCalc">WEIGHTED</button>
+                <button type="button" id="mean" onclick="meanCalc">MEAN</button>
             </section>
         </div>
         <footer></footer>
