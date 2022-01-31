@@ -7,11 +7,23 @@ window.onload = function(){
     let pArr = Array.prototype.slice.call(pNodelist);
     // console.log("length: " + pArr.length);
 
+    let rowsNodelist = document.querySelectorAll('tr');
+    let rows = Array.prototype.slice.call(rowsNodelist);
+    // console.log("row number: " + rows.length);
+
     let gradeNumerators = [];
     let gradeDenominators = []
-    let percentValues = [];
+    let weightValues = [];
+    let percentages = [];
+    // let percentValues = [];
     // let gradeDenominator = [document.getElementById('gradeDenominator')];
     // let percent = [document.getElementById('percentValue')];
+
+    let addOneRow = document.getElementById('addActivity');
+    let weightCalc = document.getElementById('weighted');
+    let meanCalc = document.getElementById('mean');
+    let output = document.getElementById('outputDisplay');
+    let table = document.getElementById('gradeTable');
 
     allInputs.forEach(element => {
         let id = element.closest('[id]').id;
@@ -24,43 +36,90 @@ window.onload = function(){
         if (id == 'gradeDenominator'){
             gradeDenominators.push(element);
         }
+
+        if (id == 'weightValue'){
+            weightValues.push(element);
+        }
     });
 
     pArr.forEach(element => {
         let id = element.closest('[id]').id;
 
         if (id == 'percentValue'){
-            percentValues.push(element);
+            percentages.push(element);
         }
     });
 
     // console.log("numerators length: " + gradeNumerators.length);
     // console.log("denominators length: " + gradeDenominators.length);
-    // console.log("percentValues length: " + percentValues.length);
+    // console.log("percentages length: " + percentages.length);
+    
+    gradeDenominators.forEach(function(denominator, index){
+        denominator.addEventListener('input', function(){
+            let numerator = gradeNumerators[index].value;
+            if(numerator!=''){
+                percentages[index].innerHTML = numerator + " / " + this.value;
+                let percent = numerator/this.value;
+                // percentValues.push(percent);
+                console.log("percent in row " + index + ": " + percent);
+            }
+            else {
+                percentages[index].innerHTML = "0 / " + this.value;
+            }
+        });
+    });
 
     gradeNumerators.forEach(function(numerator, index) {
-        console.log(numerator, index);
-        numerator.addEventListener("input", function(){
-            if(gradeDenominators[index].value!=''){
-                percentValues[index].innerHTML = this.value + " / " + gradeDenominators[index].value;
+        // console.log(numerator, index);
+        numerator.addEventListener('input', function(){
+            let denominator = gradeDenominators[index].value;
+            if(denominator!=''){
+                percentages[index].innerHTML = this.value + " / " + denominator;
+                let percent = this.value/denominator;
+                // percentValues.push(percent);
+                console.log("percent in row " + index + ": " + percent);
             }
             else {
-                percentValues[index].innerHTML = this.value + " / 0";
+                percentages[index].innerHTML = this.value + " / 0";
             }
         });
     });
 
-    gradeDenominators.forEach(function(denominator, index){
-        denominator.addEventListener("input", function(){
-            if(gradeNumerators[index].value!=''){
-                percentValues[index].innerHTML = gradeNumerators[index].value + " / " + this.value;
-            }
-            else {
-                percentValues[index].innerHTML = "0 / " + gradeNumerators[index].value;
-            }
-        });
+    addOneRow.addEventListener('click', function(){
+        // console.log("To do: add one more row functionality");
+        let row = table.insertRow(rows.length);
+        let cell1 = row.insertCell(0);
+        let cell2 = row.insertCell(1);
+        let cell3 = row.insertCell(2);
+        let cell4 = row.insertCell(3);
+        let cell5 = row.insertCell(4);
+        cell1.innerHTML = "NEW CELL1";
+        cell2.innerHTML = "NEW CELL2";
+        cell3.innerHTML = "NEW CELL3";
+        cell4.innerHTML = "NEW CELL4";
+        cell5.innerHTML = "NEW CELL5";
     });
     
+    weightCalc.addEventListener('click', function(){
+        console.log("calculate weight!");
+    });
+
+    meanCalc.addEventListener('click', function(){
+        // console.log("percent values: " + percentages.length);
+        let sum = 0;
+        gradeNumerators.forEach(function(numerator, index) {
+            let denominator = gradeDenominators[index].value;
+            let percent = numerator.value/denominator;
+            sum += percent;
+            console.log("sum now: " + sum);
+        });
+        let mean = sum/percentages.length;
+        mean = Math.round((mean + Number.EPSILON) * 10000) / 10000
+        console.log("Mean: " + mean);
+        output.innerHTML = mean;
+    });
+
+
     // Traditional way to invoke onclick() version 1
     // gradeNumerator.onclick = function() {displayPercent()};
 

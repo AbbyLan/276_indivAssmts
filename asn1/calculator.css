@@ -29,10 +29,6 @@ h4 {
     padding: 30px;
 }
 
-textarea {
-    display:none;
-}
-
 .content {
     position: relative;
     left: 40px;
@@ -87,8 +83,12 @@ table, td {
     border-collapse: collapse;
 }
 
+table {
+    height: 280px;
+}
+
 td {
-    height: 45px;
+    height: 30px;
     border-color: rgb(184, 181, 181);
 }
 
@@ -103,7 +103,7 @@ td {
 }
 
 #weightValue, #gradeNumerator, #gradeDenominator {
-    height: 33px;
+    height: 40%;
     width: 50px;
 }
 
@@ -129,16 +129,30 @@ button {
     left: 10px;
 }
 
-#weighted, #mean {
-    position: relative;
+#weighted {
+    position: absolute;
     bottom: 20px;
     left: 600px;
+}
+
+#mean {
+    position: absolute;
+    bottom: 20px;
+    left: 690px;
 }
 
 #result {
     color: rgb(204, 4, 4);
     font-weight: bold;
-    position: relative;
+    position: absolute;
     left: 12px;
-    bottom: 18px;
+    bottom: 20px;
+}
+
+#outputDisplay {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    position: absolute;
+    left: 12px;
+    bottom: 6px;
 }

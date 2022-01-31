@@ -11,7 +11,7 @@
             <section class="calculator">
                 <h3>Activities</h3>
                 <h4>Give grades to the numeric activities:</h4>
-                <table>
+                <table id="gradeTable">
                     <tr class="firstRow">
                         <td id="name">Name</td>
                         <td id="shortName">Short Name</td> 
@@ -48,10 +48,11 @@
                         <td><p id="percentValue"></p></td>
                     </tr>
                 </table>
-                <button type="button" id="addActivity" onclick="addActivity();">ADD ACTIVITY</button>
+                <button type="button" id="addActivity">ADD ACTIVITY</button>
                 <p id="result">Result</p>
-                <button type="button" id="weighted" onclick="weightedCalc">WEIGHTED</button>
-                <button type="button" id="mean" onclick="meanCalc">MEAN</button>
+                <p id="outputDisplay"></p>
+                <button type="button" id="weighted">WEIGHTED</button>
+                <button type="button" id="mean">MEAN</button>
             </section>
         </div>
         <footer></footer>
