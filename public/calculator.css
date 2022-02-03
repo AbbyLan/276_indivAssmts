@@ -129,6 +129,12 @@ button {
     left: 10px;
 }
 
+#resetBtn {
+    position: absolute;
+    bottom: 65px;
+    left: 120px;
+}
+
 #weighted {
     position: absolute;
     bottom: 20px;
