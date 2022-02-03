@@ -25,7 +25,10 @@ window.onload = function(){
     let output = document.getElementById('outputDisplay');
     let table = document.getElementById('gradeTable');
 
+    let isAddActivityClicked = false;
+
     addOneRow.addEventListener('click', function(){
+        isAddActivityClicked = true;
         // console.log("To do: add one more row functionality");
         let rowNumber = getRowCount();
         let row = table.insertRow(rowNumber);
@@ -326,9 +329,12 @@ window.onload = function(){
         gradeNumerators.forEach(function(numerator, index) {
             if (numerator.value == "" || gradeDenominators[index].value == ""){
                 let rowNumber = index + 1;
-                let message = "The grade in Activity " + rowNumber + " is incomplete so it will not be calculated.";
-                // console.log("Row number: " + rowNumber);
-                alert(message);
+                if (!isAddActivityClicked){
+                    let message = "The grade in Activity " + rowNumber + " is incomplete so it will not be calculated.";
+                    // console.log("Row number: " + rowNumber);
+                    console.log("is add activity clicked: " + isAddActivityClicked);
+                    alert(message);
+                }
             }
             else {
                 let denominator = gradeDenominators[index].value;
