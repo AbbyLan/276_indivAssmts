@@ -151,7 +151,7 @@ window.onload = function(){
                 if (!isNaN(percent) && isFinite(percent)){
                     realAmount += 1;
                     sum += percent;
-                    console.log("sum now: " + sum);
+                    console.log("percents sum now: " + sum);
                 }
             })
             
@@ -182,7 +182,7 @@ window.onload = function(){
                         console.log("weighted grade: " + weightedGrade);
                         sum += weightedGrade;
                         console.log("Weights now: " + weights);
-                        console.log("Sum now: " + sum);
+                        console.log("Weighted Sum now: " + sum);
                     }   
                 }
             });
@@ -285,7 +285,7 @@ window.onload = function(){
             if (!isNaN(percent) && isFinite(percent)){
                 realAmount += 1;
                 sum += percent;
-                console.log("sum now: " + sum);
+                console.log("percents sum now (outside addOneRow): " + sum);
             }
         })
         
@@ -294,6 +294,9 @@ window.onload = function(){
         console.log("Mean: " + mean);
         output.innerHTML = mean;
     });
+
+    let isWeightEmpty = [];
+    let isGradeEmpty = [];
 
     weightCalc.addEventListener('click', function(){
         // console.log("calculate weight!");
@@ -304,19 +307,25 @@ window.onload = function(){
             let percent = percentValues[index];
             if (!isNaN(percent) && isFinite(percent)){
                 if (weight.value == ""){
+                    isWeightEmpty[index] = true;
                     let rowNumber = index + 1;
-                    let message = "The weight in Activity " + rowNumber + " is empty so it will not be calculated.";
-                    console.log("Row number: " + rowNumber);
-                    alert(message);
+                    if (!isAddActivityClicked){
+                        let message = "The weight in Activity " + rowNumber + " is empty so it will not be calculated.";
+                        // console.log("Row number: " + rowNumber);
+                        alert(message);
+                    }
                 }
                 else {
-                    weights += weight.value / 10 * 10;
-                    console.log("weight: " + weight.value);
-                    let weightedGrade = weight.value * percentValues[index];
-                    console.log("weighted grade: " + weightedGrade);
-                    sum += weightedGrade;
-                    console.log("Weights now: " + weights);
-                    console.log("Sum now: " + sum);
+                    isWeightEmpty[index] = false;
+                    if (!isGradeEmpty[index]){
+                        weights += weight.value / 10 * 10;
+                        console.log("weight: " + weight.value);
+                        let weightedGrade = weight.value * percentValues[index];
+                        console.log("weighted grade: " + weightedGrade);
+                        sum += weightedGrade;
+                        console.log("Weights now: " + weights);
+                        console.log("Weighted Sum now (outside addOneRow): " + sum);
+                    }
                 }   
             }
         });
@@ -328,6 +337,7 @@ window.onload = function(){
         let percentValues = [];
         gradeNumerators.forEach(function(numerator, index) {
             if (numerator.value == "" || gradeDenominators[index].value == ""){
+                isGradeEmpty[index] = true;
                 let rowNumber = index + 1;
                 if (!isAddActivityClicked){
                     let message = "The grade in Activity " + rowNumber + " is incomplete so it will not be calculated.";
@@ -337,9 +347,12 @@ window.onload = function(){
                 }
             }
             else {
-                let denominator = gradeDenominators[index].value;
-                let percent = numerator.value/denominator;
-                percentValues.push(percent);
+                isGradeEmpty[index] = false;
+                if (!isWeightEmpty[index]){
+                    let denominator = gradeDenominators[index].value;
+                    let percent = numerator.value/denominator;
+                    percentValues.push(percent);
+                }
             }
         });
         return percentValues;
