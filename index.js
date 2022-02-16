@@ -21,7 +21,6 @@ app.get('/', (req, res) => res.render('pages/index'));
 app.get('/database', (req,res) => {
   var getRectanglesQuery = `SELECT * FROM rectangle`;
   pool.query(getRectanglesQuery, (error,result) => {
-    console.log(error);
     if (error){
       res.send(error);
     }
