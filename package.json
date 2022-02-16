@@ -11,9 +11,10 @@
     "test": "node test.js"
   },
   "dependencies": {
+    "express":"*",
+    "body-parser": "*",
     "ejs": "^3.1.5",
-    "express": "^4.15.2",
-    "body-parser":"*"
+    "pg": "^8.7.3"
   },
   "devDependencies": {
     "got": "^11.3.0",
