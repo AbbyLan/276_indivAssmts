@@ -5,6 +5,8 @@ const PORT = process.env.PORT || 5000
 const { Pool } = require('pg');
 var pool;
 pool = new Pool({
+  // connectionString: 'postgres://{username}:{password}@localhost/users'
+  // connectionString: 'postgres://haochenyang:root@localhost/users'
   connectionString: process.env.DATABASE_URL
 })
 
@@ -19,6 +21,7 @@ app.get('/', (req, res) => res.render('pages/index'));
 app.get('/database', (req,res) => {
   var getRectanglesQuery = `SELECT * FROM rectangle`;
   pool.query(getRectanglesQuery, (error,result) => {
+    console.log(error);
     if (error){
       res.send(error);
     }
