@@ -1,14 +1,20 @@
+process.env.NODE_TLS_REJECT_UNAUTHORIZED='0'
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
 const { Pool } = require('pg');
-var pool;
-pool = new Pool({
-  // connectionString: 'postgres://{username}:{password}@localhost/users'
-  // connectionString: 'postgres://haochenyang:root@localhost/users'
-  connectionString: process.env.DATABASE_URL
+// var pool;
+// pool = new Pool({
+//   // connectionString: 'postgres://{username}:{password}@localhost/users'
+//   // connectionString: 'postgres://haochenyang:root@localhost/users'
+//   connectionString: process.env.DATABASE_URL
+// })
+var pool = new Pool({
+  connectionString : process.env.DATABASE_URL
 })
+
+pool.connect();
 
 var app = express();
 app.use(express.json());
