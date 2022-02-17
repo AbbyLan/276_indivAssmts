@@ -43,9 +43,31 @@ app.get('/add', (req,res) => {
 app.post('add_new', (req,res) => {
   params = JSON.parse(JSON.stringify(req.body));
   var total = 0;
-  for (var key in params){
-    console.log(key);
+  for (var key in params) {
+    console.log("key in params: " + key);
+    if (key != 'trainer' && key != 'tokimon_name') {
+        if (isNaN(parseInt(params[key]))) {
+            console.log(`wrong type for ${key}, putting value as 0`);
+            params[key] = 0;
+        } else {
+            params[key] = parseInt(params[key]);
+            total += params[key];
+        }
+    }
   }
+  insertQuery = `INSERT INTO public."RECTANGLE"(
+      "NAME", "WIDTH", "HEIGHT", "COLOR", "AGE", "GENDER")
+  VALUES( ${params.name} , ${params.width}, ${params.height} , ${params.color} , ${params.age}, ${params.gender} )`
+      console.log(insertQuery)
+  pool.query(insertQuery, function(err, res, fields) {
+      if (err) {
+          console.log("fail to insert to Tokimon family")
+          res.redirect('/');
+      } else {
+          console.log("success to insert from Tokimon family")
+          res.render('Add_New.ejs')
+      }
+  });
 })
 
 app.post('/display', (req,res) => {
