@@ -1,4 +1,35 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Modification</title>
+  </head>
+  <body>
+    <% include ../partials/nav.ejs %>
+
+    <h2> Delete A Rectangle</h2>
+    <div> 
+      <form action="/dele" method="post"> 
+        <input type="text" id="id" name="id" placeholder="ID" style="background-color: burlywood; color:rgb(0, 68, 68)" required /> 
+        <input type="submit" value="Submit" style="position: relative; left: 300px;background-color: burlywood; color:rgb(0, 68, 68)" >
+      </form>
+    </div> 
+
+    <h1> Rectangle Data Collection</h1>
+      <form name='myform' method='POST' action='/create'>
+        <div id="side">
+          <div id="origin">
+            <label for="name">Rectangle Name: </label><input id="name" type="text" /><br /><br />
+          </div>
+        </div>
+      </form>
+  </body>
+  <script src="myServer.js"></script>
+</html>
+
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <%- include ("../partials/header.ejs") %>
@@ -55,7 +86,7 @@
         <li><a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node Apps on Heroku</a></li>
       </ul>
     </div>
-  </div> <!-- row -->
+  </div>  // row
    <div class="alert alert-info text-center" role="alert">
     Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
   </div>
@@ -63,4 +94,4 @@
 
 
 </body>
-</html>
+</html> -->

@@ -1,18 +1,19 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED='0'
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
 const { Pool } = require('pg');
-// var pool;
-// pool = new Pool({
+// const pool = new Pool({
 //   // connectionString: 'postgres://{username}:{password}@localhost/users'
 //   // connectionString: 'postgres://haochenyang:root@localhost/users'
 //   connectionString: process.env.DATABASE_URL
 // })
-var pool = new Pool({
-  connectionString : process.env.DATABASE_URL
-})
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
 
 pool.connect();
 
@@ -32,14 +33,16 @@ app.get('/database', (req,res) => {
     }
     var results = {'rows':result.rows}
     res.render('pages/db', results);
-  })
-})
-app.post('/adduser', (req,res) => {
-  console.log("post request for /adduser");
-  var recName = req.body.recName;
-  var age = req.body.age;
-  res.send(`rectanglename: ${recName}`)
-})
+  });
+});
 
+app.post('/add', (req,res) => {
+  // console.log("post request for /add");
+  // var name = req.body.name;
+  // var age = req.body.age;
+  // res.send(`rectangle name: ${name}`);
+  // res.send(`rectangle age: ${age}`);
+  res.render('addRec.ejs');
+});
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
