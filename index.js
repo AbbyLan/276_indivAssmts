@@ -41,33 +41,26 @@ app.get('/add', (req,res) => {
 })
 
 app.post('/add_new', (req,res) => {
-  console.log(req);
-  console.log(req.body);
-  var total = 0;
-  for (var key in req.body) {
-    console.log("key in req.body: " + key);
-    if (key != 'trainer' && key != 'tokimon_name') {
-        if (isNaN(parseInt(req.body[key]))) {
-            console.log("wrong type for ${key}, putting value as 0");
-            req.body[key] = 0;
-        } else {
-            req.body[key] = parseInt(req.body[key]);
-            total += req.body[key];
-        }
+  console.log("req: " + req);
+  console.log("req.body" + req.body);
+  var name = req.body.name;
+  var width = req.body.width;
+  var height = req.body.height;
+  var color = req.body.color;
+  var age = req.body.age;
+  var gender = req.body.gender;
+
+  console.log(name,width,height,color,age,gender);
+  var insert=`INSERT INTO users(name, width, height,color,age,gender) 
+  VALUES('${name}',${width},${height},${color},${age},${gender}')`;
+  
+  pool.query(insert,function(error,results,fields){
+    if(error){
+      res.send(error);
+    } else {
+      alert("Your rectangle added successfully!");
+      res.redirect('/add');
     }
-  }
-  insertQuery = `INSERT INTO public."RECTANGLE"(
-      "NAME", "WIDTH", "HEIGHT", "COLOR", "AGE", "GENDER")
-      VALUES( ${req.body.name} , ${req.body.width}, ${req.body.height}, ${req.body.color}, ${req.body.age}, ${req.body.gender} )`;
-      console.log(insertQuery);
-  pool.query(insertQuery, function(err, result, fields) {
-      if (err) {
-          console.log("fail to insert to Tokimon family")
-          res.redirect('/');
-      } else {
-          console.log("success to insert from Tokimon family")
-          res.render('addRec.ejs')
-      }
   });
 });
 
