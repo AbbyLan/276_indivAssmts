@@ -40,14 +40,14 @@ app.get('/add', (req,res) => {
   res.render('addRec.ejs');
 })
 
-app.post('add_new', (req,res) => {
+app.post('/add_new', (req,res) => {
   params = JSON.parse(JSON.stringify(req.body));
   var total = 0;
   for (var key in params) {
     console.log("key in params: " + key);
     if (key != 'trainer' && key != 'tokimon_name') {
         if (isNaN(parseInt(params[key]))) {
-            console.log(`wrong type for ${key}, putting value as 0`);
+            console.log("wrong type for ${key}, putting value as 0");
             params[key] = 0;
         } else {
             params[key] = parseInt(params[key]);
