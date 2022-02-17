@@ -58,7 +58,7 @@ app.post('/add_new', (req,res) => {
       res.send(error);
     } else {
       console.log("Your rectangle added successfully!");
-      res.redirect('/add');
+      res.redirect('/database');
     }
   });
 });
