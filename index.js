@@ -36,13 +36,24 @@ app.get('/database', (req,res) => {
   });
 });
 
-app.post('/add', (req,res) => {
-  // console.log("post request for /add");
-  // var name = req.body.name;
-  // var age = req.body.age;
-  // res.send(`rectangle name: ${name}`);
-  // res.send(`rectangle age: ${age}`);
+app.get('/add', (req,res) => {
   res.render('addRec.ejs');
+})
+
+app.post('add_new', (req,res) => {
+  params = JSON.parse(JSON.stringify(req.body));
+  var total = 0;
+  for (var key in params){
+    console.log(key);
+  }
+})
+
+app.post('/display', (req,res) => {
+  console.log("post request for /add");
+  var name = req.body.name;
+  var age = req.body.age;
+  res.send(`rectangle name: ${name}`);
+  res.send(`rectangle age: ${age}`);
 });
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
