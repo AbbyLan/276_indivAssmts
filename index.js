@@ -41,24 +41,25 @@ app.get('/add', (req,res) => {
 })
 
 app.post('/add_new', (req,res) => {
-  params = JSON.parse(JSON.stringify(req.body));
+  console.log(req);
+  console.log(req.body);
   var total = 0;
-  for (var key in params) {
-    console.log("key in params: " + key);
+  for (var key in req.body) {
+    console.log("key in req.body: " + key);
     if (key != 'trainer' && key != 'tokimon_name') {
-        if (isNaN(parseInt(params[key]))) {
+        if (isNaN(parseInt(req.body[key]))) {
             console.log("wrong type for ${key}, putting value as 0");
-            params[key] = 0;
+            req.body[key] = 0;
         } else {
-            params[key] = parseInt(params[key]);
-            total += params[key];
+            req.body[key] = parseInt(req.body[key]);
+            total += req.body[key];
         }
     }
   }
   insertQuery = `INSERT INTO public."RECTANGLE"(
       "NAME", "WIDTH", "HEIGHT", "COLOR", "AGE", "GENDER")
-  VALUES( ${params.name} , ${params.width}, ${params.height} , ${params.color} , ${params.age}, ${params.gender} )`
-      console.log(insertQuery)
+      VALUES( ${req.body.name} , ${req.body.width}, ${req.body.height}, ${req.body.color}, ${req.body.age}, ${req.body.gender} )`;
+      console.log(insertQuery);
   pool.query(insertQuery, function(err, result, fields) {
       if (err) {
           console.log("fail to insert to Tokimon family")
@@ -68,7 +69,7 @@ app.post('/add_new', (req,res) => {
           res.render('addRec.ejs')
       }
   });
-})
+});
 
 app.post('/display', (req,res) => {
   console.log("post request for /add");
