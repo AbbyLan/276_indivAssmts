@@ -51,10 +51,9 @@ app.post('/add_new', (req,res) => {
   var gender = req.body.gender;
 
   console.log(name,width,height,color,age,gender);
-  var insert=`INSERT INTO rectangle(name, width, height,color,age,gender) 
-  VALUES('${name}',${width},${height},${color},${age},${gender}');`;
+  var addRectangleQuery = `INSERT INTO rectangle values ('${name}', ${height}, ${width}, '${color}');`;
   
-  pool.query(insert,function(error,results,fields){
+  pool.query(addRectangleQuery,function(error,results,fields){
     if(error){
       res.send(error);
     } else {
