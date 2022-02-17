@@ -41,9 +41,9 @@ app.get('/add', (req,res) => {
 })
 
 app.post('/add_new', (req,res) => {
-  console.log("req: " + req);
-  console.log("req.body" + req.body);
-  var name = req.body.name;
+  // console.log("req: " + req);
+  // console.log("req.body" + req.body);
+  var name = req.body.rectangle_name;
   var width = req.body.width;
   var height = req.body.height;
   var color = req.body.color;
