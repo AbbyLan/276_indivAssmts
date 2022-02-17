@@ -41,8 +41,8 @@ app.get('/add', (req,res) => {
 })
 
 app.post('/add_new', (req,res) => {
-  // console.log("req: " + req);
-  // console.log("req.body" + req.body);
+  console.log("req: " + req);
+  console.log("req.body" + req.body);
   var name = req.body.rectangle_name;
   var width = req.body.width;
   var height = req.body.height;
@@ -57,7 +57,7 @@ app.post('/add_new', (req,res) => {
     if(error){
       res.send(error);
     } else {
-      alert("Your rectangle added successfully!");
+      console.log("Your rectangle added successfully!");
       res.redirect('/add');
     }
   });
