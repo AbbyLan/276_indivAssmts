@@ -59,13 +59,13 @@ app.post('add_new', (req,res) => {
       "NAME", "WIDTH", "HEIGHT", "COLOR", "AGE", "GENDER")
   VALUES( ${params.name} , ${params.width}, ${params.height} , ${params.color} , ${params.age}, ${params.gender} )`
       console.log(insertQuery)
-  pool.query(insertQuery, function(err, res, fields) {
+  pool.query(insertQuery, function(err, result, fields) {
       if (err) {
           console.log("fail to insert to Tokimon family")
           res.redirect('/');
       } else {
           console.log("success to insert from Tokimon family")
-          res.render('Add_New.ejs')
+          res.render('addRec.ejs')
       }
   });
 })
