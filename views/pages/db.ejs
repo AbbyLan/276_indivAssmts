@@ -3,7 +3,6 @@
 <style>
   table, th, td {
     text-align: center;
-    width:100%;
     border:1px solid black;
     border-collapse: collapse;
   }
@@ -32,7 +31,6 @@
   </table>
     <% rows.forEach(function(r) { %>
       <table>
-      </table>
         <tr>
           <td><%= r.name %></td>
           <td><%= r.color %></td>
@@ -41,7 +39,8 @@
           <td><%= r.age %></td>
           <td><%= r.gender %></td>
         </tr>
-        <!-- <li><%= r.name %>, <%= r.color %>, <%= r.width %>, <%= r.height %>, <%= r.age %>, <%= r.gender %></li> -->
+      </table>
+      <!-- <li><%= r.name %>, <%= r.color %>, <%= r.width %>, <%= r.height %>, <%= r.age %>, <%= r.gender %></li> -->
     <% }); %>
 </ul>
 
