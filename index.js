@@ -88,12 +88,16 @@ app.post('/dele', (req,res) => {
   });
 });
 
-// app.post('/display', (req,res) => {
-//   console.log("post request for /add");
-//   var name = req.body.name;
-//   var age = req.body.age;
-//   res.send(`rectangle name: ${name}`);
-//   res.send(`rectangle age: ${age}`);
-// });
+app.post('/display', (req,res) => {
+  let name = req.body.name;
+  var getRectangleQuery = `SELECT * FROM rectangle WHERE NAME =  '${name}';`;
+    pool.query(getRectangleQuery, (error, result) => {
+        if (error){
+          res.end(error);
+        }
+        var results = { 'rows': result.rows };
+        res.render('displayRec.ejs', results)
+    });
+});
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
