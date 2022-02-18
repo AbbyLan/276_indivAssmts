@@ -14,11 +14,8 @@
   p {
     color: rgba(36, 36, 253, 0.973);
   }
-  input {
-    display: none;
-  }
 </style>
-<script>
+<!-- <script>
   window.onload = function () {
       let displayBtns = document.querySelectorAll('button');
       let btnArr = Array.prototype.slice.call(displayBtns);
@@ -35,7 +32,7 @@
         });
       });
   }
-</script>
+</script> -->
 <head>
   <%- include ("../partials/header.ejs") %>
 </head>
@@ -63,8 +60,10 @@
         <tr>
           <td>
             <form action="/display" method="post">
-              <button><p><b><%= r.name %></b></p></button>
-              <input type="text" name="name">
+              <!-- <button><p><b><%= r.name %></b></p></button> -->
+              <p><b><input type="submit" value="<%= r.name %>"></b></p>
+              <!-- <input type="text" name="name">
+              <div id="submitRec"></div> -->
             </form>
           </td>
           <td><%= r.color %></td>
