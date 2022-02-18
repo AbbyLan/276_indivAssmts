@@ -17,7 +17,7 @@ const pool = new Pool({
 
 pool.connect();
 
-var app = express();
+let app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -26,12 +26,12 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => res.render('pages/index'));
 app.get('/database', (req,res) => {
-  var getRectanglesQuery = `SELECT * FROM rectangle`;
+  let getRectanglesQuery = `SELECT * FROM rectangle`;
   pool.query(getRectanglesQuery, (error,result) => {
     if (error){
       res.send(error);
     }
-    var results = {'rows':result.rows}
+    let results = {'rows':result.rows}
     res.render('pages/db', results);
   });
 });
@@ -43,15 +43,15 @@ app.get('/add', (req,res) => {
 app.post('/add_new', (req,res) => {
   // console.log("req: " + req);
   // console.log("req.body" + req.body);
-  var name = req.body.rectangle_name;
-  var width = req.body.width;
-  var height = req.body.height;
-  var color = req.body.color;
-  var age = req.body.age;
-  var gender = req.body.gender;
+  let name = req.body.rectangle_name;
+  let width = req.body.width;
+  let height = req.body.height;
+  let color = req.body.color;
+  let age = req.body.age;
+  let gender = req.body.gender;
 
   console.log(name,width,height,color,age,gender);
-  var addRectangleQuery = `INSERT INTO rectangle VALUES ('${name}', ${width}, ${height}, '${color}', ${age}, '${gender}');`;
+  let addRectangleQuery = `INSERT INTO rectangle VALUES ('${name}', ${width}, ${height}, '${color}', ${age}, '${gender}');`;
   
   pool.query(addRectangleQuery,function(error,results,fields){
     if(error){
@@ -63,12 +63,36 @@ app.post('/add_new', (req,res) => {
   });
 });
 
-app.post('/display', (req,res) => {
-  console.log("post request for /add");
-  var name = req.body.name;
-  var age = req.body.age;
-  res.send(`rectangle name: ${name}`);
-  res.send(`rectangle age: ${age}`);
+app.get('/delete', (req,res) => {
+  res.render('deleterec.ejs');
 });
+
+app.post('/dele', (req,res) => {
+  let name = req.body.recName;
+  let deleteQuery = `DELETE FROM rectangle WHERE "NAME" = '${name}';`;
+  pool.query(deleteQuery, function(err, result, fields) {
+    //console.log("delet reslut", result)
+    if (err) {
+        console.log("Failed to delete from Tokimon family")
+        res.redirect('/db');
+    } else {
+        if (result.rowCount == 0) {
+            console.log("delete 0 rows")
+            res.redirect('/db');
+        } else {
+            console.log("success to delete from Tokimon family")
+            res.redirect('/db');
+        }
+    }
+});
+});
+
+// app.post('/display', (req,res) => {
+//   console.log("post request for /add");
+//   var name = req.body.name;
+//   var age = req.body.age;
+//   res.send(`rectangle name: ${name}`);
+//   res.send(`rectangle age: ${age}`);
+// });
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
