@@ -7,9 +7,6 @@
             border:1px solid black;
             border-collapse: collapse;
         }
-        input {
-            display: none;
-        }
     </style>
     <script>
         window.onload = function () {
@@ -58,10 +55,12 @@
               <% rows.forEach(function(r) { %>
                 <table>
                   <tr>
-                    <form action="/display" method="post">
-                        <button id="displayButton"><p name="name"><b><%= r.name %></b></p></button>
-                        <input id='recInput' type='text' name='name'>
-                    </form>
+                    <td>
+                        <form action="/display" method="post">
+                            <button id="displayButton"><p name="name"><b><%= r.name %></b></p></button>
+                            <input style=" display: none;" id='recInput' type='text' name='name'>
+                        </form>
+                    </td>
                     <td><%= r.color %></td>
                     <td><%= r.width %></td>
                     <td><%= r.height %></td>
