@@ -33,7 +33,11 @@
     <% rows.forEach(function(r) { %>
       <table>
         <tr>
-          <td><%= r.name %></td>
+          <td>
+            <form action="/display" method="get">
+              <button><%= r.name %></button>
+            </form>
+          </td>
           <td><%= r.color %></td>
           <td><%= r.width %></td>
           <td><%= r.height %></td>
