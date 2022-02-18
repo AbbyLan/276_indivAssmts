@@ -20,10 +20,10 @@
 </style>
 <script>
   window.onload = function () {
-      let displayBtn = document.querySelectorAll('displayButton');
+      let displayBtn = document.querySelectorAll('button');
       let btnArr = Array.prototype.slice.call(displayBtn);
 
-      let recInput = document.querySelectorAll('recInput');
+      let recInput = document.querySelectorAll('input');
       let inputArr = Array.prototype.slice.call(recInput);
 
       let recNames = document.querySelectorAll('b');
@@ -63,8 +63,8 @@
         <tr>
           <td>
             <form action="/display" method="post">
-              <button id="displayButton"><p><b><%= r.name %></b></p></button>
-              <input id="recInput" type="text" name="name">
+              <button><p><b><%= r.name %></b></p></button>
+              <input type="text" name="name">
             </form>
           </td>
           <td><%= r.color %></td>
