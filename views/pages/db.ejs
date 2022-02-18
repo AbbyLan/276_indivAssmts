@@ -14,6 +14,9 @@
   p {
     color: rgba(36, 36, 253, 0.973);
   }
+  input {
+    display: none;
+  }
 </style>
 <head>
   <%- include ("../partials/header.ejs") %>
@@ -43,6 +46,7 @@
           <td>
             <form action="/display" method="post">
               <button><p name="name"><%= r.name %></p></button>
+              <input type="submit" name="display" value="toDisplay">
             </form>
           </td>
           <td><%= r.color %></td>
