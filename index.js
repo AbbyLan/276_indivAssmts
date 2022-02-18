@@ -64,6 +64,7 @@ app.post('/add_new', (req,res) => {
 });
 
 app.get('/delete', (req,res) => {
+  console.log("what is wrong?");
   res.render('deleteRec.ejs');
 });
 
