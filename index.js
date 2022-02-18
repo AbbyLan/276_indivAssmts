@@ -37,7 +37,7 @@ app.get('/database', (req,res) => {
 });
 
 app.get('/add', (req,res) => {
-  res.render('addRec.ejs');
+  res.render('pages/addRec.ejs');
 })
 
 app.post('/add_new', (req,res) => {
@@ -64,7 +64,7 @@ app.post('/add_new', (req,res) => {
 });
 
 app.get('/delete', (req,res) => {
-  res.render('deleteRec.ejs');
+  res.render('pages/deleteRec.ejs');
 });
 
 app.post('/dele', (req,res) => {
