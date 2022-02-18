@@ -29,7 +29,14 @@
     </tr>
   </table>
     <% rows.forEach(function(r) { %>
-        <li><%= r.name %>, <%= r.age %>, <%= r.color %></li>
+        <tr>
+          <th><%= r.name %></th>
+          <th><%= r.color %></th>
+          <th><%= r.width %></th>
+          <th><%= r.height %></th>
+          <th><%= r.age %></th>
+          <th><%= r.gender %></th>
+        </tr>
     <% }); %>
 </ul>
 
