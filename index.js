@@ -64,7 +64,7 @@ app.post('/add_new', (req,res) => {
 });
 
 app.get('/delete', (req,res) => {
-  res.render('deleterec.ejs');
+  res.render('deleteRec.ejs');
 });
 
 app.post('/dele', (req,res) => {
