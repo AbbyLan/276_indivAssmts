@@ -22,7 +22,7 @@
   window.onload = function () {
       let displayBtn = document.getElementById('displayButton');
       let recInput = document.getElementById('recInput');
-      let recName = document.getElementsByTagName('b');
+      let recName = document.getElementsById('rectangleName');
 
       displayBtn.addEventListener('click', function(){
           recInput.value = recName.value;
@@ -56,7 +56,7 @@
         <tr>
           <td>
             <form action="/display" method="post">
-              <button id="displayButton"><p><b><%= r.name %></b></p></button>
+              <button id="displayButton"><p><b id="rectangleName"><%= r.name %></b></p></button>
               <input id="recInput" type="text" name="name">
             </form>
           </td>
