@@ -14,25 +14,10 @@
   p {
     color: rgba(36, 36, 253, 0.973);
   }
-</style>
-<!-- <script>
-  window.onload = function () {
-      let displayBtns = document.querySelectorAll('button');
-      let btnArr = Array.prototype.slice.call(displayBtns);
-
-      let recInputs = document.querySelectorAll('input');
-      let inputArr = Array.prototype.slice.call(recInputs);
-
-      let recNames = document.querySelectorAll('b');
-      let nameArr = Array.prototype.slice.call(recNames);
-
-      btnArr.forEach(function(btn, index){
-        btn.addEventListener('click', function(){
-          inputArr[index].value = nameArr[index].value;
-        });
-      });
+  input {
+    display: none;
   }
-</script> -->
+</style>
 <head>
   <%- include ("../partials/header.ejs") %>
 </head>
@@ -62,8 +47,6 @@
             <form action="/display" method="post">
               <input type="text" name="name" value="<%= r.name %>">
               <button><p><b><%= r.name %></b></p></button>
-              <!-- <p><b><input type="submit" value="<%= r.name %>"></b></p> -->
-              <!-- <div id="submitRec"></div> -->
             </form>
           </td>
           <td><%= r.color %></td>
