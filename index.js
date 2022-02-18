@@ -74,17 +74,18 @@ app.post('/dele', (req,res) => {
   pool.query(deleteQuery, function(err, result, fields) {
     //console.log("delet reslut", result)
     if (err) {
-        console.log("Failed to delete from Tokimon family")
-        res.redirect('pages/db');
+      console.log("Failed to delete from Tokimon family")
+      res.redirect('pages/db');
     } else {
-        if (result.rowCount == 0) {
-            console.log("delete 0 rows")
-            res.redirect('pages/db');
-        } else {
-            console.log("success to delete from Tokimon family")
-            res.redirect('pages/db');
-        }
+      if (result.rowCount == 0) {
+        console.log("delete 0 rows")
+        res.redirect('pages/db');
+      } else {
+        console.log("success to delete from Tokimon family")
+        res.redirect('pages/db');
+      }
     }
+  });
 });
 
 // app.post('/display', (req,res) => {
