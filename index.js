@@ -90,12 +90,13 @@ app.post('/dele', (req,res) => {
 
 app.post('/display', (req,res) => {
   let name = req.body.name;
-  var getRectangleQuery = `SELECT * FROM rectangle WHERE NAME = '${name}';`;
+  console.log("name: "+name);
+  let getRectangleQuery = `SELECT * FROM rectangle WHERE NAME = '${name}';`;
     pool.query(getRectangleQuery, (error, result) => {
         if (error){
           res.end(error);
         }
-        var results = { 'rows': result.rows };
+        let results = { 'rows': result.rows };
         res.render('displayRec.ejs', results)
     });
 });
