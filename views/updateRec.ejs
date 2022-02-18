@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Update A Rectangle</title>
+    </head>
+
+    <body>
+        <header style="color:pink;font-size:29px;">Please enter a rectangle's information that you want to update</header>
+        <ul style="text-align: center;list-style-position: inside;">
+            <form class="" action="/update" method="post">
+                <p><strong>Please Choose A Rectangle to Update and Fill A New Attribut Value:</strong></p><br>
+                <% rows.forEach((r) => { %>
+                  <label for="tokiname" id = "aka" align = "left">----<   <%= r.name %>   > ----</label><br>
+                <% }); %>
+                <br>
+                <input type="text" name="attribute" value="" placeholder="Attribute">
+                <input type="number" name="number" min = "0" value="" placeholder="Values">
+                <input type="text" name="names" value="" placeholder="Tokimon Name">
+                <input type="submit" name="" value="Save">
+                <br/>
+                <button>Update</button>
+                <a href="/" style="color:GREEN;font-size:20px;margin-left:20px;">HOME</a>
+            </form>
+        </ul>
+    
+    </body>
+</html>
