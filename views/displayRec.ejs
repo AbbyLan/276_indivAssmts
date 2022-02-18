@@ -9,17 +9,35 @@
             <input type="submit" name="" class = "button" value="Back Home">
           </form>
         </div>
-        <div>
-          <p align = "center" style="color: black; font-size: 30px;"><strong>Display your choice:</strong></p>
-          <br>
-          <div class="box">
-            <% rows.forEach((r) => { %>
-              <div class="do">
-                <p style="color: black; font-size: 30px;"><%= r.name %></p>
-                <canvas width="<%= r.width %>" height="<%= r.height %>" style="border:4px solid green;"></canvas>
-              </div>
-            <% }); %>
-          </div>
-        </div>
+        <ul>
+            <table>
+              <tr>
+                <th>&nbsp name</th>
+                <th>&nbsp color</th>
+                <th>&nbsp width</th>
+                <th>&nbsp height</th>
+                <th>&nbsp age</th>
+                <th>&nbsp gender</th>
+              </tr>
+            </table>
+              <% rows.forEach(function(r) { %>
+                <table>
+                  <tr>
+                    <td>
+                      <form action="/display" method="post">
+                        <button><p name="name"><b><%= r.name %></b></p></button>
+                        <!-- <input type="submit" name="/display" value="Submit"> -->
+                      </form>
+                    </td>
+                    <td><%= r.color %></td>
+                    <td><%= r.width %></td>
+                    <td><%= r.height %></td>
+                    <td><%= r.age %></td>
+                    <td><%= r.gender %></td>
+                  </tr>
+                </table>
+              <% }); %>
+          </ul>
+          
       </body>
 </html>
