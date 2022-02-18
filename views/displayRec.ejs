@@ -8,17 +8,6 @@
             border-collapse: collapse;
         }
     </style>
-    <script>
-        window.onload = function () {
-            let displayBtn = document.getElementById('displayButton');
-            let recInput = document.getElementById('recInput');
-            let recName = document.getElementsByTagName('b');
-
-            displayBtn.addEventListener('click', function(){
-                recInput.value = recName.value;
-            });
-        }
-    </script>
     <head>
         <title>Display A Rectangle</title>
     </head>
@@ -55,12 +44,7 @@
               <% rows.forEach(function(r) { %>
                 <table>
                   <tr>
-                    <td>
-                        <form action="/display" method="post">
-                            <button id="displayButton"><p name="name"><b><%= r.name %></b></p></button>
-                            <!-- <input style="display: none;" id='recInput' type='text' name='name'> -->
-                        </form>
-                    </td>
+                    <td><%= r.name %></td>
                     <td><%= r.color %></td>
                     <td><%= r.width %></td>
                     <td><%= r.height %></td>

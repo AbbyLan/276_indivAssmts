@@ -15,11 +15,19 @@
     color: rgba(36, 36, 253, 0.973);
   }
   input {
-    display: block;
+    display: none;
   }
 </style>
 <script>
-  
+  window.onload = function () {
+      let displayBtn = document.getElementById('displayButton');
+      let recInput = document.getElementById('recInput');
+      let recName = document.getElementsByTagName('b');
+
+      displayBtn.addEventListener('click', function(){
+          recInput.value = recName.value;
+      });
+  }
 </script>
 <head>
   <%- include ("../partials/header.ejs") %>
@@ -48,8 +56,8 @@
         <tr>
           <td>
             <form action="/display" method="post">
-              <button><p><b><%= r.name %></b></p></button>
-              <input type="text" name="name">
+              <button id="displayButton"><p><b><%= r.name %></b></p></button>
+              <input id="recInput" type="text" name="name">
             </form>
           </td>
           <td><%= r.color %></td>
