@@ -15,7 +15,7 @@
     color: rgba(36, 36, 253, 0.973);
   }
   input {
-    display: none;
+    display: block;
   }
 </style>
 <head>
@@ -46,7 +46,7 @@
           <td>
             <form action="/display" method="post">
               <button><p name="name"><%= r.name %></p></button>
-              <input type="submit" name="display" value="toDisplay">
+              <input type="submit" name="/display" value="Submit">
             </form>
           </td>
           <td><%= r.color %></td>
