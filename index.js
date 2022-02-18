@@ -37,9 +37,9 @@ app.get('/database', (req,res) => {
 });
 
 app.get('/add', (req,res) => {
-  res.render('pages/addRec.ejs');
+  res.render('addRec.ejs');
 })
-  
+
 app.post('/add_new', (req,res) => {
   // console.log("req: " + req);
   // console.log("req.body" + req.body);
@@ -64,7 +64,7 @@ app.post('/add_new', (req,res) => {
 });
 
 app.get('/delete', (req,res) => {
-  res.render('pages/deleteRec');
+  res.render('deleteRec.ejs');
 });
 
 app.post('/dele', (req,res) => {
@@ -73,19 +73,19 @@ app.post('/dele', (req,res) => {
   pool.query(deleteQuery, function(err, result, fields) {
     //console.log("delet reslut", result)
     if (err) {
-        console.log("Failed to delete from Tokimon family");
+        console.log("Failed to delete from Tokimon family")
         res.redirect('/db');
     } else {
         if (result.rowCount == 0) {
-            console.log("delete 0 rows");
+            console.log("delete 0 rows")
             res.redirect('/db');
         } else {
-            console.log("success to delete from Tokimon family");
+            console.log("success to delete from Tokimon family")
             res.redirect('/db');
         }
     }
 });
-
+});
 
 // app.post('/display', (req,res) => {
 //   console.log("post request for /add");
