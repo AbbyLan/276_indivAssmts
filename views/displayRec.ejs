@@ -9,6 +9,19 @@
             <input type="submit" name="" class = "button" value="Back Home">
           </form>
         </div>
+        <div>
+          <p align = "center" style="color: black; font-size: 30px;"><strong>Display your choice:</strong></p>
+          <br>
+          <div class="box">
+            <% rows.forEach((r) => { %>
+              <div>
+              <p style="color: black; font-size: 30px;"><%= r.name %></p>
+              <canvas width="<%= r.width %>" height="<%= r.height %>" style="border:4px solid white;"></canvas>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+
         <ul>
             <table>
               <tr>
@@ -38,6 +51,5 @@
                 </table>
               <% }); %>
           </ul>
-          
       </body>
 </html>
