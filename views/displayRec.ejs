@@ -12,7 +12,18 @@
             position: relative;
             margin-left: 200px;
         }
+        #recColor {
+            display: none;
+        }
     </style>
+    <script>
+        window.onload = function() {
+            let rectangleColor = document.getElementById('recColor').value;
+            if (rectangleColor != ""){
+                canvas.style.backgroundColor = rectangleColor;
+            }
+        }
+    </script>
     <head>
         <title>Display A Rectangle</title>
     </head>
@@ -23,12 +34,13 @@
           </form>
         </div>
         <div>
-          <p align = "center" style="color: black; font-size: 30px;"><strong>Display your choice:</strong></p>
+          <p align = "center" style="color: black; font-size: 30px;"><strong>Displaying your choice below:</strong></p>
           <br>
           <div class="box">
             <% rows.forEach((r) => { %>
               <div>
                 <!-- <p style="color: black; font-size: 30px;"><%= r.name %></p> -->
+                <p id="recColor"><%= r.color %></p>
                 <canvas width="<%= r.width %>" height="<%= r.height %>" style="background-color: green;"></canvas>
               </div>
             <% }); %>
