@@ -75,14 +75,14 @@ app.post('/dele', (req,res) => {
     //console.log("delet reslut", result)
     if (err) {
       console.log("Failed to delete from Tokimon family")
-      res.redirect('pages/db');
+      res.redirect('database');
     } else {
       if (result.rowCount == 0) {
         console.log("delete 0 rows")
-        res.redirect('pages/db');
+        res.redirect('database');
       } else {
         console.log("success to delete from Tokimon family")
-        res.redirect('pages/db');
+        res.redirect('database');
       }
     }
   });
