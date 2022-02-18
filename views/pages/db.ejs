@@ -25,7 +25,8 @@
       let recName = document.getElementById('rectangleName');
 
       displayBtn.addEventListener('click', function(){
-          recInput.value = recName.value;
+        console.log("name: " + recName.value);
+        recInput.value = recName.value;
       });
   }
 </script>
