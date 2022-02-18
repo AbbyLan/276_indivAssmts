@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html>
+<style>
+  table, th, td {
+    border:1px solid black;
+    border-collapse: collapse;
+  }
+</style>
 <head>
   <%- include ("../partials/header.ejs") %>
 </head>
@@ -12,6 +18,16 @@
 <h2>Rectangles</h2>
 
 <ul>
+  <table style="width:100%">
+    <tr>
+      <th>name</th>
+      <th>color</th>
+      <th>width</th>
+      <th>height</th>
+      <th>age</th>
+      <th>gender</th>
+    </tr>
+  </table>
     <% rows.forEach(function(r) { %>
         <li><%= r.name %>, <%= r.age %>, <%= r.color %></li>
     <% }); %>
