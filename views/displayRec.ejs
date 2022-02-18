@@ -18,7 +18,7 @@
     </style>
     <script>
         window.onload = function() {
-            let rectangleColor = document.getElementById('recColor').value;
+            let rectangleColor = document.getElementById('recColor').textContent;
             let myCanvas = document.getElementsByTagName('canvas');
             if (rectangleColor != ""){
                 myCanvas[0].style.backgroundColor = rectangleColor;
