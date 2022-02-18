@@ -2,6 +2,8 @@
 <html>
 <style>
   table, th, td {
+    text-align: center;
+    width:100%;
     border:1px solid black;
     border-collapse: collapse;
   }
@@ -18,7 +20,7 @@
 <h2>Rectangles</h2>
 
 <ul>
-  <table style="width:100%">
+  <table>
     <tr>
       <th>name</th>
       <th>color</th>
@@ -29,10 +31,17 @@
     </tr>
   </table>
     <% rows.forEach(function(r) { %>
+      <table>
+      </table>
         <tr>
-          <th>r.name</th>
+          <td><%= r.name %></td>
+          <td><%= r.color %></td>
+          <td><%= r.width %></td>
+          <td><%= r.height %></td>
+          <td><%= r.age %></td>
+          <td><%= r.gender %></td>
         </tr>
-        <li><%= r.name %>, <%= r.color %>, <%= r.width %>, <%= r.height %>, <%= r.age %>, <%= r.gender %></li>
+        <!-- <li><%= r.name %>, <%= r.color %>, <%= r.width %>, <%= r.height %>, <%= r.age %>, <%= r.gender %></li> -->
     <% }); %>
 </ul>
 
