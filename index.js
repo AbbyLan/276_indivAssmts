@@ -70,7 +70,7 @@ app.get('/delete', (req,res) => {
 
 app.post('/dele', (req,res) => {
   let name = req.body.recName;
-  let deleteQuery = `DELETE FROM rectangle WHERE "NAME" = '${name}';`;
+  let deleteQuery = `DELETE FROM rectangle WHERE NAME = '${name}';`;
   pool.query(deleteQuery, function(err, result, fields) {
     //console.log("delet reslut", result)
     if (err) {
