@@ -12,7 +12,7 @@
     border: none;
   }
   p {
-    color: #4CAF50;
+    color: rgba(36, 36, 253, 0.973);
   }
 </style>
 <head>
@@ -29,7 +29,7 @@
 <ul>
   <table>
     <tr>
-      <th><p>&nbsp name</p></th>
+      <th>&nbsp name</th>
       <th>&nbsp color</th>
       <th>&nbsp width</th>
       <th>&nbsp height</th>
@@ -42,7 +42,7 @@
         <tr>
           <td>
             <form action="/display" method="post">
-              <button name="name"><%= r.name %></button>
+              <button name="name"><p><%= r.name %></p></button>
             </form>
           </td>
           <td><%= r.color %></td>
@@ -52,7 +52,6 @@
           <td><%= r.gender %></td>
         </tr>
       </table>
-      <!-- <li><%= r.name %>, <%= r.color %>, <%= r.width %>, <%= r.height %>, <%= r.age %>, <%= r.gender %></li> -->
     <% }); %>
 </ul>
 
