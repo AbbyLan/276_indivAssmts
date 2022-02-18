@@ -120,7 +120,7 @@ app.post('/update', (req,res) => {
     if(error){
       res.send(error);
     } else {
-      console.log("Your rectangle added successfully!");
+      console.log("Your rectangle updated successfully!");
       res.redirect('/database');
     }
   });
