@@ -90,7 +90,7 @@ app.post('/dele', (req,res) => {
 
 app.post('/display', (req,res) => {
   let name = req.body.name;
-  console.log("name: "+name);
+  console.log("name: " + name);
   let getRectangleQuery = `SELECT * FROM rectangle WHERE NAME = '${name}';`;
     pool.query(getRectangleQuery, (error, result) => {
         if (error){
