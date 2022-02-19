@@ -106,7 +106,7 @@ app.get('/update', (req,res) => {
 });
 
 app.post('/update', (req,res) => {
-  let name = req.body.rectangle_name;
+  let name = req.body.rec_name;
   let width = req.body.width;
   let height = req.body.height;
   let color = req.body.color;
@@ -114,7 +114,7 @@ app.post('/update', (req,res) => {
   let gender = req.body.gender;
 
   console.log(name,width,height,color,age,gender);
-  let addRectangleQuery = `UPDATE rectangle SET ('${name}', ${width}, ${height}, '${color}', ${age}, '${gender}');`;
+  let addRectangleQuery = `UPDATE rectangle SET WIDTH = ${width}, HEIGHT = ${height}, COLOR = '${color}', AGE = ${age}, GENDER = '${gender}' WHERE NAME = '${name}';`;
   
   pool.query(addRectangleQuery,function(error,results,fields){
     if(error){
