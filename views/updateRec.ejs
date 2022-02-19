@@ -8,10 +8,8 @@
         <header style="color:pink;font-size:29px;">Please enter a rectangle's information that you want to update</header>
         <ul style="text-align: center;list-style-position: inside;">
             <form class="" action="/update" method="post">
-                <p><strong>Please Enter the Rectangle's Name You Want to Update and Choose An Attribute to Fill A New Value:</strong></p><br>
-                <% rows.forEach((r) => { %>
-                  <label for="tokiname" id = "aka" align = "left">----<   <%= r.name %>   > ----</label><br>
-                <% }); %>
+                <p><strong>Please Enter the Rectangle's Name You Want to Update and Choose An Attribute to Fill A New Value:</strong></p>
+                <br>
                 <br>
                 <input type="text" name="attribute" value="" placeholder="Attribute">
                 <input type="number" name="number" min = "0" value="" placeholder="Values">

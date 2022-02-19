@@ -105,25 +105,25 @@ app.get('/update', (req,res) => {
   res.render('updateRec.ejs');
 });
 
-app.post('/update', (req,res) => {
-  let name = req.body.rectangle_name;
-  let width = req.body.width;
-  let height = req.body.height;
-  let color = req.body.color;
-  let age = req.body.age;
-  let gender = req.body.gender;
+// app.post('/update', (req,res) => {
+//   let name = req.body.rectangle_name;
+//   let width = req.body.width;
+//   let height = req.body.height;
+//   let color = req.body.color;
+//   let age = req.body.age;
+//   let gender = req.body.gender;
 
-  console.log(name,width,height,color,age,gender);
-  let addRectangleQuery = `UPDATE rectangle SET ('${name}', ${width}, ${height}, '${color}', ${age}, '${gender}');`;
+//   console.log(name,width,height,color,age,gender);
+//   let addRectangleQuery = `UPDATE rectangle SET ('${name}', ${width}, ${height}, '${color}', ${age}, '${gender}');`;
   
-  pool.query(addRectangleQuery,function(error,results,fields){
-    if(error){
-      res.send(error);
-    } else {
-      console.log("Your rectangle updated successfully!");
-      res.redirect('/database');
-    }
-  });
-});
+//   pool.query(addRectangleQuery,function(error,results,fields){
+//     if(error){
+//       res.send(error);
+//     } else {
+//       console.log("Your rectangle updated successfully!");
+//       res.redirect('/database');
+//     }
+//   });
+// });
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
