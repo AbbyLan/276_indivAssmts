@@ -114,9 +114,9 @@ app.post('/update', (req,res) => {
   let gender = req.body.gender;
 
   console.log(name,width,height,color,age,gender);
-  let addRectangleQuery = `UPDATE rectangle SET WIDTH = ${width}, HEIGHT = ${height}, COLOR = '${color}', AGE = ${age}, GENDER = '${gender}' WHERE NAME = '${name}';`;
+  let updateRectangleQuery = `UPDATE rectangle SET WIDTH = ${width}, HEIGHT = ${height}, COLOR = '${color}', AGE = ${age}, GENDER = '${gender}' WHERE NAME = '${name}';`;
   
-  pool.query(addRectangleQuery,function(error,results,fields){
+  pool.query(updateRectangleQuery,function(error,results,fields){
     if(error){
       res.send(error);
     } else {
