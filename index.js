@@ -24,15 +24,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => res.render('pages/index'));
-app.get('/database', (req,res) => {
+// app.get('/', (req, res) => res.render('pages/mainPage'));
+app.get('/', (req,res) => {
   let getRectanglesQuery = `SELECT * FROM rectangle`;
   pool.query(getRectanglesQuery, (error,result) => {
     if (error){
       res.send(error);
     }
     let results = {'rows':result.rows}
-    res.render('pages/db', results);
+    res.render('pages/mainPage', results);
   });
 });
 
