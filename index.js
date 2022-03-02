@@ -88,12 +88,42 @@ app.post('/dele', (req,res) => {
   });
 });
 
-// app.post('/display', (req,res) => {
-//   console.log("post request for /add");
-//   var name = req.body.name;
-//   var age = req.body.age;
-//   res.send(`rectangle name: ${name}`);
-//   res.send(`rectangle age: ${age}`);
-// });
+app.post('/display', (req,res) => {
+  let name = req.body.name;
+  console.log("name: " + name);
+  let getRectangleQuery = `SELECT * FROM rectangle WHERE NAME = '${name}';`;
+    pool.query(getRectangleQuery, (error, result) => {
+        if (error){
+          res.end(error);
+        }
+        let results = { 'rows': result.rows };
+        res.render('displayRec.ejs', results)
+    });
+});
+
+app.get('/update', (req,res) => {
+  res.render('updateRec.ejs');
+});
+
+app.post('/update', (req,res) => {
+  let name = req.body.rec_name;
+  let width = req.body.width;
+  let height = req.body.height;
+  let color = req.body.color;
+  let age = req.body.age;
+  let gender = req.body.gender;
+
+  console.log(name,width,height,color,age,gender);
+  let updateRectangleQuery = `UPDATE rectangle SET WIDTH = ${width}, HEIGHT = ${height}, COLOR = '${color}', AGE = ${age}, GENDER = '${gender}' WHERE NAME = '${name}';`;
+  
+  pool.query(updateRectangleQuery,function(error,results,fields){
+    if(error){
+      res.send(error);
+    } else {
+      console.log("Your rectangle updated successfully!");
+      res.redirect('/database');
+    }
+  });
+});
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));

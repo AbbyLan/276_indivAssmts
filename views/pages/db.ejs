@@ -7,6 +7,16 @@
     border:1px solid black;
     border-collapse: collapse;
   }
+  button {
+    background: none;
+    border: none;
+  }
+  p {
+    color: rgba(36, 36, 253, 0.973);
+  }
+  input {
+    display: none;
+  }
 </style>
 <head>
   <%- include ("../partials/header.ejs") %>
@@ -34,8 +44,9 @@
       <table>
         <tr>
           <td>
-            <form action="/display" method="get">
-              <button><%= r.name %></button>
+            <form action="/display" method="post">
+              <input type="text" name="name" value="<%= r.name %>">
+              <button><p><b><%= r.name %></b></p></button>
             </form>
           </td>
           <td><%= r.color %></td>
@@ -45,7 +56,6 @@
           <td><%= r.gender %></td>
         </tr>
       </table>
-      <!-- <li><%= r.name %>, <%= r.color %>, <%= r.width %>, <%= r.height %>, <%= r.age %>, <%= r.gender %></li> -->
     <% }); %>
 </ul>
 

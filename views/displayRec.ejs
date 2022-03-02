@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        table, th, td {
+            text-align: center;
+            width: 500px;
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+        canvas {
+            align-items: center;
+            position: relative;
+            margin-left: 200px;
+        }
+        #recColor {
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            let rectangleColor = document.getElementById('recColor').textContent;
+            let myCanvas = document.getElementsByTagName('canvas');
+            if (rectangleColor != ""){
+                myCanvas[0].style.backgroundColor = rectangleColor;
+            }
+        }
+    </script>
+    <head>
+        <title>Display A Rectangle</title>
+    </head>
+    <body>
+        <div class="container">
+          <form class="" action="/" method="get">
+            <input type="submit" name="" class = "button" value="Back Home">
+          </form>
+        </div>
+        <div>
+          <p align = "center" style="color: black; font-size: 30px;"><strong>Your choice is being displayed below:</strong></p>
+          <br>
+          <div class="box">
+            <% rows.forEach((r) => { %>
+              <div>
+                <!-- <p style="color: black; font-size: 30px;"><%= r.name %></p> -->
+                <p id="recColor"><%= r.color %></p>
+                <canvas width="<%= r.width %>" height="<%= r.height %>" style="background-color: green;"></canvas>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+
+        <ul>
+            <table>
+              <tr>
+                <th>&nbsp name</th>
+                <th>&nbsp color</th>
+                <th>&nbsp width</th>
+                <th>&nbsp height</th>
+                <th>&nbsp age</th>
+                <th>&nbsp gender</th>
+              </tr>
+            </table>
+              <% rows.forEach(function(r) { %>
+                <table>
+                  <tr>
+                    <td><%= r.name %></td>
+                    <td><%= r.color %></td>
+                    <td><%= r.width %></td>
+                    <td><%= r.height %></td>
+                    <td><%= r.age %></td>
+                    <td><%= r.gender %></td>
+                  </tr>
+                </table>
+              <% }); %>
+          </ul>
+      </body>
+</html>
