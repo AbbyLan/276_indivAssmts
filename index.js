@@ -58,7 +58,7 @@ app.post('/add_new', (req,res) => {
       res.send(error);
     } else {
       console.log("Your rectangle added successfully!");
-      res.redirect('/database');
+      res.redirect('/');
     }
   });
 });
@@ -75,14 +75,14 @@ app.post('/dele', (req,res) => {
     //console.log("delet reslut", result)
     if (err) {
       console.log("Failed to delete from Tokimon family")
-      res.redirect('database');
+      res.redirect('/');
     } else {
       if (result.rowCount == 0) {
         console.log("delete 0 rows")
-        res.redirect('database');
+        res.redirect('/');
       } else {
         console.log("success to delete from Tokimon family")
-        res.redirect('database');
+        res.redirect('/');
       }
     }
   });
@@ -121,7 +121,7 @@ app.post('/update', (req,res) => {
       res.send(error);
     } else {
       console.log("Your rectangle updated successfully!");
-      res.redirect('/database');
+      res.redirect('/');
     }
   });
 });
