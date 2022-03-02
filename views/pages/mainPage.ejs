@@ -18,6 +18,11 @@
   input {
     display: none;
   }
+  .btnsA {
+    text-decoration: none;
+    border: solid brown 2px;
+    background-color: blanchedalmond;
+  }
 </style>
 <head>
   <%- include ("../partials/header.ejs") %>
@@ -60,15 +65,17 @@
     <% }); %>
 </ul>
 
-<a href="https://warm-springs-41269.herokuapp.com/add">
-  <button>Add New Rectangle</button>
-</a>
-<a href="https://warm-springs-41269.herokuapp.com/delete">
-  <button>Delete A Rectangle</button>
-</a>
-<a href="https://warm-springs-41269.herokuapp.com/update">
-  <button>Update A Rectangle</button>
-</a>
+<section>
+  <a href="https://warm-springs-41269.herokuapp.com/add">
+    <button class="btnsA">Add New Rectangle</button>
+  </a>
+  <a href="https://warm-springs-41269.herokuapp.com/delete">
+    <button class="btnsA">Delete A Rectangle</button>
+  </a>
+  <a href="https://warm-springs-41269.herokuapp.com/update">
+    <button class="btnsA">Update A Rectangle</button>
+  </a>
+</section>
 
 </div>
 
